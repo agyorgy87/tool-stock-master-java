@@ -8,7 +8,7 @@ import java.util.Optional;
 @Repository
 public interface ToolRepository extends JpaRepository<Tool, Integer> {
 
-        //Optional<Tool> findByProductId(int productId);
+        Optional<Tool> findByProductId(int id);
 
         //Optional<Tool> findAllByToolName(String toolName);
 

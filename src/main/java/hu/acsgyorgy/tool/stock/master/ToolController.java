@@ -71,7 +71,8 @@ public class ToolController {
             return true;
         }
     }
-    /*
+
+
     @GetMapping(
             path = "/searchByProductId/{id}"
     )
@@ -83,7 +84,7 @@ public class ToolController {
             return new Tool();
         }
     }
-    */
+    
     /*
     @GetMapping(
             path = "/searchByName/{name}"
