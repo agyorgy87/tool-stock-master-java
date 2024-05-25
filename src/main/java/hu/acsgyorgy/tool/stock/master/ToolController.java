@@ -71,6 +71,46 @@ public class ToolController {
             return true;
         }
     }
+    /*
+    @GetMapping(
+            path = "/searchByProductId/{id}"
+    )
+    public Tool findProductId(@PathVariable int id) {
+        Optional<Tool> tool = toolRepository.findByProductId(id);
+        if(tool.isPresent()) {
+            return tool.get();
+        } else {
+            return new Tool();
+        }
+    }
+    */
+    /*
+    @GetMapping(
+            path = "/searchByName/{name}"
+    )
+    public Tool findToolName(@PathVariable String name) {
+        Optional<Tool> tool = toolRepository.findAllByToolName(name);
+        if(tool.isPresent()) {
+            return tool.get();
+        } else {
+            return new Tool();
+        }
+    }
+    */
+
+    @GetMapping(path = "/searchByName/{name}")
+    public List<Tool> findToolName(@PathVariable String name) {
+        return toolRepository.findAllByToolNameContainingIgnoreCase(name);
+    }
+    /*
+    @GetMapping(
+            path = "/searchByQuantity/{minQuantity}/{maxQuantity}"
+    )
+    public List findQuantityBetween(@PathVariable int minQuanity, @PathVariable int maxQuantity) {
+        List<Tool> tool = toolRepository.findAllByQuantityBetween(minQuanity, maxQuantity);
+        return tool;
+    }
+    */
 
 
 
