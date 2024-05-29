@@ -10,6 +10,8 @@ public interface ToolRepository extends JpaRepository<Tool, Integer> {
 
         Optional<Tool> findByProductId(int id);
 
+        List<Tool> findAllByCompanyContainingIgnoreCase(String name);
+
         //Optional<Tool> findAllByToolName(String toolName);
 
         List<Tool> findAllByToolNameContainingIgnoreCase(String name);

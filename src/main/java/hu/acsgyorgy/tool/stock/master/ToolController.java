@@ -84,7 +84,12 @@ public class ToolController {
             return new Tool();
         }
     }
-    
+
+    @GetMapping(path = "/searchByCompany/{company}")
+    public List<Tool> findCompany(@PathVariable String company) {
+        return toolRepository.findAllByCompanyContainingIgnoreCase(company);
+    }
+
     /*
     @GetMapping(
             path = "/searchByName/{name}"
@@ -103,6 +108,10 @@ public class ToolController {
     public List<Tool> findToolName(@PathVariable String name) {
         return toolRepository.findAllByToolNameContainingIgnoreCase(name);
     }
+
+
+
+
     /*
     @GetMapping(
             path = "/searchByQuantity/{minQuantity}/{maxQuantity}"
