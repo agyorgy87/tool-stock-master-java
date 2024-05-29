@@ -108,19 +108,24 @@ public class ToolController {
     public List<Tool> findToolName(@PathVariable String name) {
         return toolRepository.findAllByToolNameContainingIgnoreCase(name);
     }
+/*
+    @GetMapping(
+            path = "/searchByMinQuantity/{minQuantity}"
+    )
+    public List<Tool> findMinQuantity(@PathVariable int minquantity) {
+        List<Tool> tool = toolRepository.findAllByQuantityGreaterThanEqual(minquantity);
+        return tool;
+    }
+*/
 
-
-
-
-    /*
     @GetMapping(
             path = "/searchByQuantity/{minQuantity}/{maxQuantity}"
     )
-    public List findQuantityBetween(@PathVariable int minQuanity, @PathVariable int maxQuantity) {
-        List<Tool> tool = toolRepository.findAllByQuantityBetween(minQuanity, maxQuantity);
+    public List<Tool> findQuantityBetween(@PathVariable int minQuantity, @PathVariable int maxQuantity) {
+        List<Tool> tool = toolRepository.findAllByQuantityBetween(minQuantity, maxQuantity);
         return tool;
     }
-    */
+
 
 
 
