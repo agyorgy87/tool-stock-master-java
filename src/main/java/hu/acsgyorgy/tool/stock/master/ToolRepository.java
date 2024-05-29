@@ -16,7 +16,7 @@ public interface ToolRepository extends JpaRepository<Tool, Integer> {
 
         List<Tool> findAllByToolNameContainingIgnoreCase(String name);
 
-        //List<Tool> findAllByQuantityGreaterThanEqual(int minQuantity);
+        List<Tool> findAllByQuantityGreaterThanEqual(int quantity);
 
         List<Tool> findAllByQuantityBetween(int minQuantity,int maxQuantity);
 
