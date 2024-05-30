@@ -133,6 +133,32 @@ public class ToolController {
         return tool;
     }
 
+    //---
+
+    @GetMapping(
+            path = "/searchByMinPrice/{price}"
+    )
+    public List<Tool> findMinPrice(@PathVariable double price) {
+        List<Tool> tool = toolRepository.findAllByPriceGreaterThanEqual(price);
+        return tool;
+    }
+
+    @GetMapping(
+            path = "/searchByMaxPrice/{price}"
+    )
+    public List<Tool> findMaxPrice(@PathVariable double price) {
+        List<Tool> tool = toolRepository.findAllByPriceLessThanEqual(price);
+        return tool;
+    }
+
+    @GetMapping(
+            path = "/searchByPriceBetween/{minPrice}/{maxPrice}"
+    )
+    public List<Tool> findPriceBetween(@PathVariable double minPrice, @PathVariable double maxPrice) {
+        List<Tool> tool = toolRepository.findAllByPriceBetween(minPrice, maxPrice);
+        return tool;
+    }
+
 
 
 
