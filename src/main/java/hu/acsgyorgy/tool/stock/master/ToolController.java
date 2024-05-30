@@ -118,6 +118,14 @@ public class ToolController {
     }
 
     @GetMapping(
+            path = "/searchByMaxQuantity/{quantity}"
+    )
+    public List<Tool> findMaxQuantity(@PathVariable int quantity) {
+        List<Tool> tool = toolRepository.findAllByQuantityLessThanEqual(quantity);
+        return tool;
+    }
+
+    @GetMapping(
             path = "/searchByQuantityBetween/{minQuantity}/{maxQuantity}"
     )
     public List<Tool> findQuantityBetween(@PathVariable int minQuantity, @PathVariable int maxQuantity) {

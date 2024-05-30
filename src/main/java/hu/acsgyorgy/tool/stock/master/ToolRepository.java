@@ -18,6 +18,8 @@ public interface ToolRepository extends JpaRepository<Tool, Integer> {
 
         List<Tool> findAllByQuantityGreaterThanEqual(int quantity);
 
+        List<Tool> findAllByQuantityLessThanEqual(int quantity);
+
         List<Tool> findAllByQuantityBetween(int minQuantity,int maxQuantity);
 
 }
