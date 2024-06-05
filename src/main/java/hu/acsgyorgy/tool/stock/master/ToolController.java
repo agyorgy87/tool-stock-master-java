@@ -12,12 +12,22 @@ public class ToolController {
     @Autowired
     private ToolRepository toolRepository;
 
+    /*
     @PostMapping(
             path = "/create-tool"
     )
     public boolean createTool(@RequestBody Tool tool) {
         toolRepository.save(tool);
         return true;
+    }
+     */
+
+    @PostMapping(
+            path = "/create-tool"
+    )
+    public SuccessResponse createTool(@RequestBody Tool tool) {
+        toolRepository.save(tool);
+        return new SuccessResponse(true);
     }
 
     @GetMapping(
@@ -69,7 +79,8 @@ public class ToolController {
             return false;
         }else{
             toolRepository.delete(tool.get());
-            return true;
+            //return true;
+
         }
     }
 

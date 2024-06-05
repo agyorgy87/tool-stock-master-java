@@ -5,6 +5,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ErrorResponse {
 
-    public boolean successful;
-    public String message;
+    private boolean successful;
+    private String message;
 }
