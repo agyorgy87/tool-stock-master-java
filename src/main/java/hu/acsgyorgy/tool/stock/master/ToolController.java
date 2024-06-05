@@ -13,7 +13,7 @@ public class ToolController {
     private ToolRepository toolRepository;
 
     @PostMapping(
-            path = "/createtool"
+            path = "/create-tool"
     )
     public boolean createTool(@RequestBody Tool tool) {
         toolRepository.save(tool);
@@ -21,7 +21,7 @@ public class ToolController {
     }
 
     @GetMapping(
-            path = "/alltools"
+            path = "/all-tools"
     )
     public List<Tool> findAll() {
         return toolRepository.findAll();
@@ -41,7 +41,7 @@ public class ToolController {
 
 
     @PutMapping(
-            path = "/updatetool/{id}"
+            path = "/update-tool/{id}"
     )
     public boolean updateUser(@PathVariable int id, @RequestBody Tool tool) {
         Optional<Tool> originalTool = toolRepository.findById(id);
@@ -60,7 +60,7 @@ public class ToolController {
 
 
     @DeleteMapping(
-            path = "/deletetool/{id}"
+            path = "/delete-tool/{id}"
     )
     public boolean deleteUser(@PathVariable int id) {
         Optional<Tool> tool = toolRepository.findById(id);
@@ -74,7 +74,7 @@ public class ToolController {
 
 
     @GetMapping(
-            path = "/searchByProductId/{id}"
+            path = "/search-by-product-id/{id}"
     )
     public Tool findProductId(@PathVariable int id) {
         Optional<Tool> tool = toolRepository.findByProductId(id);
@@ -85,32 +85,18 @@ public class ToolController {
         }
     }
 
-    @GetMapping(path = "/searchByCompany/{company}")
+    @GetMapping(path = "/search-by-company/{company}")
     public List<Tool> findCompany(@PathVariable String company) {
         return toolRepository.findAllByCompanyContainingIgnoreCase(company);
     }
 
-    /*
-    @GetMapping(
-            path = "/searchByName/{name}"
-    )
-    public Tool findToolName(@PathVariable String name) {
-        Optional<Tool> tool = toolRepository.findAllByToolName(name);
-        if(tool.isPresent()) {
-            return tool.get();
-        } else {
-            return new Tool();
-        }
-    }
-    */
-
-    @GetMapping(path = "/searchByName/{name}")
+    @GetMapping(path = "/search-by-name/{name}")
     public List<Tool> findToolName(@PathVariable String name) {
         return toolRepository.findAllByToolNameContainingIgnoreCase(name);
     }
 
     @GetMapping(
-            path = "/searchByMinQuantity/{quantity}"
+            path = "/search-by-min-quantity/{quantity}"
     )
     public List<Tool> findMinQuantity(@PathVariable int quantity) {
         List<Tool> tool = toolRepository.findAllByQuantityGreaterThanEqual(quantity);
@@ -118,7 +104,7 @@ public class ToolController {
     }
 
     @GetMapping(
-            path = "/searchByMaxQuantity/{quantity}"
+            path = "/search-by-max-quantity/{quantity}"
     )
     public List<Tool> findMaxQuantity(@PathVariable int quantity) {
         List<Tool> tool = toolRepository.findAllByQuantityLessThanEqual(quantity);
@@ -126,17 +112,15 @@ public class ToolController {
     }
 
     @GetMapping(
-            path = "/searchByQuantityBetween/{minQuantity}/{maxQuantity}"
+            path = "/search-by-quantity-between/{minQuantity}/{maxQuantity}"
     )
     public List<Tool> findQuantityBetween(@PathVariable int minQuantity, @PathVariable int maxQuantity) {
         List<Tool> tool = toolRepository.findAllByQuantityBetween(minQuantity, maxQuantity);
         return tool;
     }
 
-    //---
-
     @GetMapping(
-            path = "/searchByMinPrice/{price}"
+            path = "/search-by-min-price/{price}"
     )
     public List<Tool> findMinPrice(@PathVariable double price) {
         List<Tool> tool = toolRepository.findAllByPriceGreaterThanEqual(price);
@@ -144,7 +128,7 @@ public class ToolController {
     }
 
     @GetMapping(
-            path = "/searchByMaxPrice/{price}"
+            path = "/search-by-max-price/{price}"
     )
     public List<Tool> findMaxPrice(@PathVariable double price) {
         List<Tool> tool = toolRepository.findAllByPriceLessThanEqual(price);
@@ -152,7 +136,7 @@ public class ToolController {
     }
 
     @GetMapping(
-            path = "/searchByPriceBetween/{minPrice}/{maxPrice}"
+            path = "/search-by-price-between/{minPrice}/{maxPrice}"
     )
     public List<Tool> findPriceBetween(@PathVariable double minPrice, @PathVariable double maxPrice) {
         List<Tool> tool = toolRepository.findAllByPriceBetween(minPrice, maxPrice);
