@@ -33,7 +33,8 @@ public class ToolController {
     public Tool toolById(@PathVariable int id) {
         Optional<Tool> tool = toolRepository.findById(id);
         if(tool.isEmpty()) {
-            return null;
+            throw new IdNotFoundException("tool id not found");
+            //return null;
         }else{
             return tool.get();
         }
