@@ -1,4 +1,4 @@
-package hu.acsgyorgy.tool.stock.master;
+package hu.acsgyorgy.tool.stock.master.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

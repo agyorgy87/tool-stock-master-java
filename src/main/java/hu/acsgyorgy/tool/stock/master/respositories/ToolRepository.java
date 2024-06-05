@@ -1,4 +1,5 @@
-package hu.acsgyorgy.tool.stock.master;
+package hu.acsgyorgy.tool.stock.master.respositories;
+import hu.acsgyorgy.tool.stock.master.domain.entities.Tool;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

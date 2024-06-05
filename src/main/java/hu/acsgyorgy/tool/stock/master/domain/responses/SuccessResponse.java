@@ -1,4 +1,4 @@
-package hu.acsgyorgy.tool.stock.master;
+package hu.acsgyorgy.tool.stock.master.domain.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

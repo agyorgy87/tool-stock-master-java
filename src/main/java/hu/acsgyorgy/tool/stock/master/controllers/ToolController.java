@@ -1,4 +1,8 @@
-package hu.acsgyorgy.tool.stock.master;
+package hu.acsgyorgy.tool.stock.master.controllers;
+import hu.acsgyorgy.tool.stock.master.respositories.ToolRepository;
+import hu.acsgyorgy.tool.stock.master.domain.entities.Tool;
+import hu.acsgyorgy.tool.stock.master.domain.exceptions.IdNotFoundException;
+import hu.acsgyorgy.tool.stock.master.domain.responses.SuccessResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,8 +83,7 @@ public class ToolController {
             return false;
         }else{
             toolRepository.delete(tool.get());
-            //return true;
-
+            return true;
         }
     }
 
